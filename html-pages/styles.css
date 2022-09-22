@@ -1,0 +1,149 @@
+html {
+  background-color: #560e0e;
+  font-family: "Baloo Thambi 2";
+}
+
+html a {
+  color: #FBBB7B;
+  text-decoration: none;
+  font-weight: 600;
+}
+html a:hover {
+  color: #E39A20;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+  min-height: 10vh;
+  background: #e5983e;
+}
+
+.full-height-body {
+  height: 80vh;
+}
+
+.centered {
+  text-align: center;
+}
+
+.app-logo {
+  max-width: 40vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20vh;
+}
+
+.app-logo-margin-top {
+  margin-top: 10vh;
+}
+
+.search-form {
+  text-align: center;
+  margin-left: -10px;
+}
+
+#search-input {
+  width: 50vh;
+  height: 6vh;
+  border-radius: 25px;
+}
+
+#search-input::placeholder {
+  padding-left: 1em;
+}
+
+.yellow-text {
+  color: #f99630;
+}
+
+.search-field {
+  width: 100%;
+  padding: 10px 35px 10px 15px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+}
+
+.search-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -33px;
+}
+
+.search-button img {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin: -10px;
+  object-fit: cover;
+}
+
+.about-us {
+  color: #f99630;
+  margin: 20vh;
+}
+
+.smooth-bg {
+  background-color: rgb(255, 255, 255, 0.14);
+}
+
+.form {
+  margin-top: 20vh;
+}
+
+.form input { 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vh;
+  height: 5vh;
+  border-radius: 15px;
+  border: 0px;
+}
+.form input::placeholder {
+  padding-left: 1em;
+}
+
+.login-button {
+  background-color: #e5983e;
+  border: 0px;
+  width: 20vh !important;
+  height: 5vh !important;
+  border-radius: 45px;
+}
+
+.login-button:hover {
+  background-color: #E39A20;
+  cursor: pointer;
+}
+
+footer .pure-g img {
+  width: 40px !important;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 60px
+}
+
+footer .pure-g .nav-icons-account {
+  width: 33px !important;
+}
+
+footer .pure-g img:hover {
+  opacity: 80%;
+}
+
+@media only screen and (max-width: 600px) {
+  .about-us {
+    margin: 1em;
+  }
+}
