@@ -2,7 +2,7 @@
 A "Magic: The Gathering" card searcherer and manager. 
 ## Tech Stack
 
-PHP, HTML, CSS, Javascript and mySQL. This project consumes the Scryfall API.
+PHP, HTML, CSS, Javascript and MySQL. This project consumes the Scryfall API.
 
 
 ## Dependencies
