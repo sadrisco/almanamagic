@@ -1,6 +1,9 @@
 html {
   background-color: #560e0e;
   font-family: "Baloo Thambi 2";
+  color: aliceblue;
+  font-size: 1.2em;
+  text-align: justify;
 }
 
 html a {
@@ -64,7 +67,7 @@ footer {
 
 .search-field {
   width: 100%;
-  padding: 10px 35px 10px 15px;
+  padding: 15px 35px 10px 15px;
   border: none;
   border-radius: 100px;
   outline: none;
@@ -74,7 +77,8 @@ footer {
   background: transparent;
   border: none;
   outline: none;
-  margin-left: -33px;
+  margin-left: -35px;
+  text-align: left;
 }
 
 .search-button img {
@@ -146,4 +150,34 @@ footer .pure-g img:hover {
   .about-us {
     margin: 1em;
   }
+}
+.cardPos{
+  width: 19.1%;
+  margin-left: 30%;
+  margin-top: 10px;
+  border: 1px solid black;
+  display: inline-flexbox;
+  align-self: center;
+  float: left;
+  box-shadow: 3px 3px #b35f5f
+}
+.chart{
+  box-shadow: 3px 3px #f87e04;
+  float: right;
+  width: 20%;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-right: 28%;
+  background-color: #8f6113;
+  border-radius: 10px;
+  text-align: justify;
+  padding: 15px;
+}
+.btnCard{
+  background-color: #E39A20;
+  color: #560e0e;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
 }
