@@ -43,10 +43,12 @@
         foreach ($result['data'] as $res) {
             // echo "<div class='cardPos'><a><img src=" . $res['image_uris']['normal'] . "><a></div>";
         ?>
-
         <?php
-            echo "<div class = 'cardPos' ><div class='w3-container w3-card-4  w3-margin-bottom '><a><img src=" . $res['image_uris']['normal'] . " class = 'image'></a>";
-            echo "<h5>Card ID: " . $res['id'] . "<h5>";
+            echo " <div class=' w3-card-4 cardPos'>
+                <div class='row'>
+                <div class='column'>
+                <a><img src=" . $res['image_uris']['normal'] . " class = 'image'></a></div>";
+            echo "<div class='column ' ><h5>Card ID: " . $res['id'] . "<h5>";
             echo "<h5>Name: " . $res['name'] . "<h5>";
             echo "<h5>Artist: " . $res['artist'] . "<h5>";
             echo "<h5>Power: " . $res['power'] . "<h5>";
@@ -136,12 +138,10 @@
                 echo "<h5>Color 5: Blue<h5>";
             }
             echo "</div>
+                    </div>
+                    </div>
                     </div>";
         }
-        // foreach ($result['data'][0]['name'] as $res) {
-        //     echo "Nome" . $res . "<br>";
-        // }
-
         ?>
 
 
