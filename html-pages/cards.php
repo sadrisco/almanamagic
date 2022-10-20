@@ -1,5 +1,6 @@
 <?php
-class Cards
+require_once "connection.php";
+class Card
 {
     private $id;
     private $imageURL;
@@ -17,15 +18,42 @@ class Cards
     private $setName;
     private $setType;
 
-    public function showCards(){
+    public function delete(){
+        $connect = new Connection();
+        $st = $connect->conn->prepare("
+        delete from cards where id = :id
+        ");
+        $st->bindValue(":id", $this->getId());
+        return $st->execute();
+    }
+
+    public function showAll(){
+        $connect = new Connection();
+        $st = $connect->conn->prepare(
+        "select * from cards order by name");
+        $st->execute();	
+		return $st->fetchAll();
     }
 
     public function insert(){
-        $conectado= new Connection();
-        $st=$conectado->conn->prepare(
-        "insert into cards(name) ".
-        "values(:n)");
-        $st->bindValue(":n",$this->getCardName());
+        $connect= new Connection();
+        $st=$connect->conn->prepare(
+        "insert into cards(imageURL,id,name,artist,power,def,text,flavor_text,type,manaCost,rarity,cmc,setName,setType) ".
+        "values(:im,:i,:n,:ar,:po,:de,:te,:ft,:ty,:mc,:ra,:cm,:sn,:st)");
+        $st->bindValue(":im", $this->getImageURL());
+        $st->bindValue(":i", $this->getId());
+        $st->bindValue(":n", $this->getCardName());
+        $st->bindValue(":ar", $this->getArtist());
+        $st->bindValue(":po", $this->getPower());
+        $st->bindValue(":de", $this->getDef());
+        $st->bindValue(":te", $this->getText());
+        $st->bindValue(":ft", $this->getFlavor_text());
+        $st->bindValue(":ty", $this->getType());
+        $st->bindValue(":mc", $this->getManaCost());
+        $st->bindValue(":ra", $this->getRarity());
+        $st->bindValue(":cm", $this->getCmc());
+        $st->bindValue(":sn", $this->getSetName());
+        $st->bindValue(":st", $this->getSetType());
         return $st->execute();	
     }
     public function getId()
@@ -156,7 +184,7 @@ class Cards
 	
 	/**
 	 * @param mixed $setType 
-	 * @return Cards
+	 * @return Card
 	 */
 	function setSetType($setType): self {
 		$this->setType = $setType;
