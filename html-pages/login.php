@@ -1,8 +1,23 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
+<?php
+require 'user.php';
+if(isset($_POST['email']) && isset($_POST['password'])){
+  if(filter_var($$_POST['email'], FILTER_VALIDATE_EMAIL)){
+    $insert = new User();
+    $insert->insertUser();
+  }
+  else{
+    ?>
+    <script>
+					window.alert("Please use a valid e-mail");
+					window.location.href = "./login.php";
+				</script>
+        <?php 
+}
+
+}
+
+?>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -29,7 +44,7 @@
     </header>
 
     <div class="smooth-bg full-height-body">
-      <form id="login-form" class="form" action="">
+      <form id="login-form" class="form" action="" method ="post">
         <input
           type="email"
           id="email"

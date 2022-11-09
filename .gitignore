@@ -1,3 +1,4 @@
 #initial
 *._
 *.DS_Store
+/html-pages/nbproject/private/
