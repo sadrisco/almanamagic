@@ -24,7 +24,7 @@
         <a href="/almanamagic/html-pages/login.php"><img class="nav-icons-account" src="./asset/account-icon.svg" /></a>
       </div>
       <div class="pure-u-1-4">
-        <a href="/almanamagic/html-pages/list.php"><img class="nav-icons" src="./asset/favorite-icon.svg" /></a>
+        <a href="/almanamagic/html-pages/favorites.php"><img class="nav-icons" src="./asset/favorite-icon.svg" /></a>
       </div>
       <div class="pure-u-1-4">
         <a href="/almanamagic/html-pages/logout"><img class="nav-icons" src="./asset/logout-icon.svg" /></a>

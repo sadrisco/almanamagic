@@ -7,14 +7,14 @@
             ?>
 			<script>
 			   window.alert("Card deleted from favorites");
-			   window.location.href="./list.php";
+			   window.location.href="./favorites.php";
 			</script>
 			<?php
 		}else{
 					?>
 			<script>
 			   window.alert("Error");
-			   window.location.href="./list.php";
+			   window.location.href="./favorites.php";
 			</script>
 			<?php
 		

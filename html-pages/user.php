@@ -3,7 +3,8 @@ require_once 'connection.php';
 
 class User{
     private $email; 
-    private $password; 
+    private $password;
+    private $name;
     private $id; 
 
     public function insertUser(){
@@ -28,6 +29,9 @@ class User{
     public function getPassword() {
         return $this->password;
     }
+    public function getName(){
+        return $this->name;
+    }
 
     public function getId() {
         return $this->id;
@@ -39,6 +43,9 @@ class User{
 
     public function setPassword($password): void {
         $this->password = $password;
+    }
+    public function setName($name): void{
+        $this->name = $name;
     }
 
     public function setId($id): void {

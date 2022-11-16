@@ -1,23 +1,3 @@
-
-<?php
-require 'user.php';
-if(isset($_POST['email']) && isset($_POST['password'])){
-  if(filter_var($$_POST['email'], FILTER_VALIDATE_EMAIL)){
-    $insert = new User();
-    $insert->insertUser();
-  }
-  else{
-    ?>
-    <script>
-					window.alert("Please use a valid e-mail");
-					window.location.href = "./login.php";
-				</script>
-        <?php 
-}
-
-}
-
-?>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -39,10 +19,22 @@ if(isset($_POST['email']) && isset($_POST['password'])){
   </head>
 
   <body>
-    <header>
-      <img class="app-logo" src="./asset/logo.png" />
-    </header>
-
+    <footer>
+      <div class="pure-g">
+        <div class="pure-u-1-4">
+          <a href="/almanamagic/html-pages"><img class="nav-icons" src="./asset/home-icon.svg" /></a>
+        </div>
+        <div class="pure-u-1-4">
+          <a href="/almanamagic/html-pages/login.html"><img class="nav-icons-account" src="./asset/account-icon.svg" /></a>
+        </div>
+        <div class="pure-u-1-4">
+          <a href="/almanamagic/html-pages/favorites.php"><img class="nav-icons" src="./asset/favorite-icon.svg" /></a>
+        </div>
+        <div class="pure-u-1-4">
+          <a href="/almanamagic/html-pages/logout"><img class="nav-icons" src="./asset/logout-icon.svg" /></a>
+        </div>
+      </div>
+    </footer>
     <div class="smooth-bg full-height-body">
       <form id="login-form" class="form" action="" method ="post">
         <input
@@ -59,24 +51,8 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         /><br /><br />
         <input class="login-button" type="submit" value="Entrar" />
       </form>
-      <p class="yellow-text centered">Não possui uma conta? <a href="/create-account.html">Clique aqui e crie uma.</a></p>
+      <p class="yellow-text centered">Não possui uma conta? <a href="/almanamagic/html-pages/create-account.php">Clique aqui e crie uma.</a></p>
 
     </div>
-    <footer>
-      <div class="pure-g">
-        <div class="pure-u-1-4">
-          <a href="/almanamagic/html-pages"><img class="nav-icons" src="./asset/home-icon.svg" /></a>
-        </div>
-        <div class="pure-u-1-4">
-          <a href="/almanamagic/html-pages/login.html"><img class="nav-icons-account" src="./asset/account-icon.svg" /></a>
-        </div>
-        <div class="pure-u-1-4">
-          <a href="/almanamagic/html-pages/favorites.html"><img class="nav-icons" src="./asset/favorite-icon.svg" /></a>
-        </div>
-        <div class="pure-u-1-4">
-          <a href="/almanamagic/html-pages/logout"><img class="nav-icons" src="./asset/logout-icon.svg" /></a>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>
