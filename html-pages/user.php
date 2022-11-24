@@ -1,25 +1,42 @@
 <?php
-require_once 'connection.php';
+require_once "connection.php";
 
 class User{
     private $email; 
     private $password;
     private $name;
-    private $id; 
+    private $userId; 
 
     public function insertUser(){
-        $conn = new Connection();
-        $st=$conn->conn->prepare("select * from user where email = :em");
+        $connect = new Connection();
+        $st=$connect->conn->prepare("insert into user(email, password, name) values(:em,:pw,:nm)");
+        $st->bindValue(":em", $this->getEmail());
+        $st->bindValue(":pw", $this->getPassword());
+        $st->bindValue(":nm", $this->getName());
+        return $st->execute();
+       }
+    public function validate(){
+        $connect = new Connection();
+        echo $this->getEmail();
+        $st=$connect->conn->prepare("select * from user where email = :em");
+        $st->bindValue(":em", $this->getEmail());
         $st->execute();
-            if($st->fetch() != null){
-                $st=$conn->conn->prepare("insert into user(email, password) values(:em,:pw)");
-                $st->bindValue(":em", $this->email);
-                $st->bindValue(":pw", $this->password);
-                return $st->execute();
-            }
-            else{
-                return "User already registered";
-            }
+        $result = $st->fetch();
+        return $result;
+    }
+    public function login($email,$password){
+        $connect = new Connection();
+        $st=$connect->conn->prepare("select * from user where email = :em and password = :pw");
+        $st->bindValue(":em", $email);
+        $st->bindValue(":pw", $password);
+        $st->execute();
+        if($st->fetchAll()<>""){
+            echo $st->fetch();
+            return true;
+            
+    } else{
+        return false;
+    }
     }
     
     public function getEmail() {
@@ -34,22 +51,22 @@ class User{
     }
 
     public function getId() {
-        return $this->id;
+        return $this->userId;
     }
 
-    public function setEmail($email): void {
+    public function setEmail($email) {
         $this->email = $email;
     }
 
-    public function setPassword($password): void {
+    public function setPassword($password) {
         $this->password = $password;
     }
-    public function setName($name): void{
+    public function setName($name){
         $this->name = $name;
     }
 
-    public function setId($id): void {
-        $this->id = $id;
+    public function setUserId($userId) {
+        $this->userId = $userId;
     }
 
 }

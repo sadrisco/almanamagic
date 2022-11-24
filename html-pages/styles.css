@@ -112,7 +112,7 @@ footer.fav {
 }
 
 .form {
-  margin-top: 20vh;
+  margin-top: 8vh;
 }
 
 .form input {
@@ -123,6 +123,7 @@ footer.fav {
   height: 5vh;
   border-radius: 15px;
   border: 0px;
+  text-align: center;
 }
 
 .form input::placeholder {

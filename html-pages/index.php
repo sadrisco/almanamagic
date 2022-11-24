@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<footer class="fav">
+  <footer class="fav">
     <div class="pure-g">
       <div class="pure-u-1-4">
         <a href="/almanamagic/html-pages"><img class="nav-icons" src="./asset/home-icon.svg" /></a>
@@ -27,12 +27,14 @@
         <a href="/almanamagic/html-pages/favorites.php"><img class="nav-icons" src="./asset/favorite-icon.svg" /></a>
       </div>
       <div class="pure-u-1-4">
-        <a href="/almanamagic/html-pages/logout"><img class="nav-icons" src="./asset/logout-icon.svg" /></a>
+        <a href="/almanamagic/html-pages/logout.php"><img class="nav-icons" src="./asset/logout-icon.svg" /></a>
       </div>
     </div>
   </footer>
   <header>
-    <img class="app-logo app-logo-margin-top" src="./asset/logo.png" style="padding-top: 5%;"/>
+    <?php 
+    echo  "<p>"."Teste".$_SESSION ."</p>"; ?>
+    <img class="app-logo app-logo-margin-top" src="./asset/logo.png" style="padding-top: 5%; padding-bottom: 5%;"/>
   </header>
   <div class="search-form">
     <form action="search-results.php" method="get" class="search">

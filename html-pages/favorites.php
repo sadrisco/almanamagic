@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="./styles.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2" />
-  <link rel="stylesheet" href="./w3style.css" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous" />
 
@@ -27,7 +27,7 @@
         <a href="/almanamagic/html-pages/favorites.php"><img class="nav-icons" src="./asset/favorite-icon.svg" /></a>
       </div>
       <div class="pure-u-1-4">
-        <a href="/almanamagic/html-pages/logout"><img class="nav-icons" src="./asset/logout-icon.svg" /></a>
+        <a href="/almanamagic/html-pages/logout.php"><img class="nav-icons" src="./asset/logout-icon.svg" /></a>
       </div>
     </div>
   </footer>
@@ -35,7 +35,9 @@
   <div>
     <?php
     require_once "cards.php";
-    $cards = new Card();
+    if((isset ($_SESSION['user'])))
+{
+  $cards = new Card();
     $resp = $cards->showAll();
     if ($cards->showAll() != null) {
       foreach ($resp as $card) {
@@ -61,8 +63,10 @@
                 </div>
             </div>
         </div>";
-      }
-    } else {
+  
+} 
+    } 
+  else {
     ?>
       <script>
         window.alert("No cards in favorite list");
@@ -70,7 +74,8 @@
       </script>
     <?php
     }
-
+  }
+  
     ?>
   </div>
 </body>

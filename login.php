@@ -1,3 +1,25 @@
+<?php
+session_start();
+require_once 'connection.php';
+  if(isset($_POST['email']) && isset($_POST['password'])){
+    $connect = new Connection();
+    $st=$connect->conn->prepare("select * from user where email = :em");
+    $st->bindValue(":em", $_POST['email']);
+    $st->execute();
+    $user = $st->fetch();
+    if($user <> ""){
+      $_SESSION[$_POST['email']];
+      $_SESSION[$_POST['password']];
+      ?>
+      <script>
+        window.alert("Welcome");
+        window.location.href = "./index.php";
+      </script>
+    <?php
+    
+  }
+}
+?>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -26,7 +48,7 @@
           <a href="/almanamagic/html-pages/favorites.php"><img class="nav-icons" src="./asset/favorite-icon.svg" /></a>
         </div>
         <div class="pure-u-1-4">
-          <a href="/almanamagic/html-pages/logout.php"><img class="nav-icons" src="./asset/logout-icon.svg" /></a>
+          <a href="/almanamagic/html-pages/logout"><img class="nav-icons" src="./asset/logout-icon.svg" /></a>
         </div>
       </div>
     </footer>
@@ -34,7 +56,7 @@
     <img class="app-logo app-logo-margin-top" src="./asset/logo.png" style="padding-top: 5%;"/>
   </header>
     <div >
-      <form id="login-form" class="form" action="loginFile.php" method ="post">
+      <form id="login-form" class="form" action="login.php" method ="post">
         <input
           type="email"
           id="email"
@@ -51,6 +73,13 @@
       </form>
       <p class="yellow-text centered">Não possui uma conta? <a href="/almanamagic/html-pages/create-account.php">Clique aqui e crie uma.</a></p>
 
+    </div>
+    <div>
+      <span><?php 
+      require_once 'user.php';
+      $user = new User();
+      $currentUser = $user->auth();
+      echo $_SESSION . $currentUser?></span>
     </div>
   </body>
 </html>
