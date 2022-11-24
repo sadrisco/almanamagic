@@ -18,7 +18,7 @@
 <footer class="fav">
     <div class="pure-g">
       <div class="pure-u-1-4">
-        <a href="html-pages"><img class="nav-icons" src="./asset/home-icon.svg" /></a>
+        <a href="index.php"><img class="nav-icons" src="./asset/home-icon.svg" /></a>
       </div>
       <div class="pure-u-1-4">
         <a href="login.php"><img class="nav-icons-account" src="./asset/account-icon.svg" /></a>
