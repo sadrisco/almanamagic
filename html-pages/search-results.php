@@ -192,8 +192,8 @@
             if ($res['color_identity'][4] == 'U') {
                 echo "<h7>Color 5: Blue</h7><br>";
             }
-            echo "  
-            <button class = 'w3-button' type = 'submit'><img src='./asset/favicon2.svg' ></button>
+            echo " 
+            <button class='w3-button' type = 'submit'><img src='./asset/favicon2.svg';></button>
             </form>        
                         </div>
                         </div>
@@ -203,8 +203,6 @@
 
 
     </div>
-
-
 </body>
 
 </html>

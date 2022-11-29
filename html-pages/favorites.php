@@ -32,8 +32,9 @@
     </div>
   </footer>
   <h1 style="padding-left: 45%; padding-top:20px; font-weight: bold;">My Favorite Cards</h1>
-  <div>
+  <div class= 'float-container'>
     <?php
+    session_start();
     require_once "cards.php";
     if((isset ($_SESSION['user'])))
 {
@@ -41,28 +42,18 @@
     $resp = $cards->showAll();
     if ($cards->showAll() != null) {
       foreach ($resp as $card) {
-        echo "
-        <div class=' w3-card-4 cardPos'>
-            <div class='row'>
-                <div class='column'>
-            <div>
+        echo "<div class='float-child'>
                 <img src=" . $card['imageURL'] . " class = 'image'>
-            </div>";
+                <div class='float-text'>";
         echo "
-            <h5>Card ID: " . $card['id'] . "<h5>";
-        echo "<div>
-                <h5>Name: " . $card['name'] . "<h5>
-            </div>";
+            <h7>Card ID: " . $card['id'] . "<h7>";
+        echo "
+                <h7><br>Name: " . $card['name'] . "<h7>";
 
-        echo "<div>
-                <a href = delete.php?id=" . $card['id'] . ">Delete from favorites</a>
-            </div>
-
-            
-
+        echo "<a href = delete.php?id=" . $card['id'] . ">
+                <br>Delete from favorites</a>
                 </div>
-            </div>
-        </div>";
+            </div>";
   
 } 
     } 
@@ -75,6 +66,14 @@
     <?php
     }
   }
+  else {
+    ?>
+      <script>
+        window.alert("You need to login");
+        window.location.href = "./index.php";
+      </script>
+    <?php
+    }
   
     ?>
   </div>

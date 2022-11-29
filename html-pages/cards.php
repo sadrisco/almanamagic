@@ -56,6 +56,17 @@ class Card
         $st->bindValue(":st", $this->getSetType());
         return $st->execute();	
     }
+    public function checkCard($id){
+        $connect = new Connection();
+        $st = $connect->conn->prepare("select * from cards where id = :id");
+        $st->bindValue(":id", $this->getId());
+        $st->execute();
+        if($st->fetch()!=""){
+            return false;
+        }else{
+            return true;
+        }        
+    }
     public function getId()
     {
         return $this->id;

@@ -1,3 +1,33 @@
+<?php
+
+require_once 'connection.php';
+require_once 'user.php';
+  if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password'])&& !empty($_POST['password'])){
+    $email = addslashes($_POST['email']);
+    $password = addslashes($_POST['password']);
+    $user = new User();
+    $check =$user->login($email,$password);
+    if($check == true){
+      session_start();
+      $_SESSION['user']= $_POST['email'];
+      ?>
+      <script>
+        window.alert("Welcome");
+        window.location.href = "./favorites.php";
+      </script>
+    <?php
+    }
+    else{
+      ?>
+      <script>
+        window.alert("Incorrect e-mail or password");
+        window.location.href = "./login.php";
+      </script>
+    <?php
+    
+  }
+}
+?>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -34,7 +64,7 @@
     <img class="app-logo app-logo-margin-top" src="./asset/logo.png" style="padding-top: 5%;"/>
   </header>
     <div >
-      <form id="login-form" class="form" action="loginFile.php" method ="post">
+      <form id="login-form" class="form" action="" method ="post">
         <input
           type="email"
           id="email"

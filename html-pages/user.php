@@ -27,11 +27,10 @@ class User{
     public function login($email,$password){
         $connect = new Connection();
         $st=$connect->conn->prepare("select * from user where email = :em and password = :pw");
-        $st->bindValue(":em", $email);
-        $st->bindValue(":pw", $password);
+        $pw = $st->bindValue(":em", $email);
+        $em = $st->bindValue(":pw", $password);
         $st->execute();
-        if($st->fetchAll()<>""){
-            echo $st->fetch();
+        if($st->fetchAll()!=""){
             return true;
             
     } else{

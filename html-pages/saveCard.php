@@ -13,8 +13,9 @@
         <?php
         require_once 'search-results.php';
         require_once 'cards.php';
-        if (isset($_POST['id'])) {
-            $cards = new Card();
+        $id = $_POST_['id'];
+        $cards = new Card();
+        if($cards->checkCard($id)==true && isset($_POST['id'])){
             $cards->setId($_POST['id']);
             $cards->setCardname($_POST['name']);
             $cards->setImageURL($_POST['imageURL']);
@@ -33,10 +34,9 @@
             if ($cards->insert()) { ?>
                 <script>
                     window.alert("Added to Favorites");
-                    window.location.href = "./search-results.php";
+                    window.location.href = "./search-results.php?name=all" ;
                 </script>
             <?php
-                header('location: /almanamagic/html-pages/search-results.php?name=' . ($_POST['name']));
             } else {
             ?>
                 <script>
@@ -45,7 +45,14 @@
                 </script>
         <?php
             }
-        }
+        }else {
+            ?>
+                <script>
+                    window.alert("Card already registered");
+                    window.location.href = "./search-results.php?name=fire";
+                </script>
+        <?php
+            }
         ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
