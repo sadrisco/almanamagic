@@ -79,7 +79,7 @@ require_once 'user.php';
         /><br /><br />
         <input class="login-button" type="submit" value="Entrar" />
       </form>
-      <p class="yellow-text centered">Não possui uma conta? <a href="/almanamagic/html-pages/create-account.php">Clique aqui e crie uma.</a></p>
+      <p class="yellow-text centered">Não possui uma conta? <a href="create-account.php">Clique aqui e crie uma.</a></p>
 
     </div>
   </body>
